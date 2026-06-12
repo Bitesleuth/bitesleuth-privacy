@@ -10,6 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Supabase keep_alive table
-        run: |
-          curl -X GET "https://zdbgjxblygxtpknspdfv.supabase.co/rest/v1/keep_alive?select=id&limit=1" \
-          -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}"
+               run: curl -X PATCH "https://zdbgjxblygxtpknspdfv.supabase.co/rest/v1/keep_alive?id=eq.1" -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" -H "Content-Type: application/json" -d '{"pinged_at": "now()"}'
