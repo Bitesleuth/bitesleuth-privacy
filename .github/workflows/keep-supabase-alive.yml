@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Ping Supabase
         run: |
-          curl -X PATCH "https://zdbgjxblygxtpknspdfv.supabase.co/rest/v1/keep_alive?id=eq.1" \
+          curl -X POST "https://zdbgjxblygxtpknspdfv.supabase.co/rest/v1/keep_alive" \
             -H "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
             -H "Content-Type: application/json" \
-            -d '{"pinged_at": "now()"}'
+            -d '{"id": 1, "pinged_at": "now()"}'
